@@ -180,6 +180,10 @@ type stmt =
   | Out of id
   | Return of id option
   | Loc of stmt * int (* annotate a statement with it's source line number *)
+  (* THIS HAS BEEN ADDED FOR SWITCH*)
+  | Case of exp * stmt 
+  | Switch of exp * list Case  
+  (* END *)
 
 (* Pretty-print a statement *)
 let rec pp_stmt (fmt : F.formatter) (stmt : stmt) : unit =
@@ -227,7 +231,15 @@ let rec pp_stmt (fmt : F.formatter) (stmt : stmt) : unit =
       pp_id i
   | Loc (s, _) ->
     pp_stmt fmt s
-
+  | Case (e,s) -> 
+    F.fprintf fmt "@[<2>switch@ %a@ { }]"
+    pp_exp e 
+    pp_stmt s
+  | Switch (e,cases) -> 
+   F.fprintf fmt "@[<2>switch@ %a@ { }]"
+    pp_exp e
+    pp_stmt cases
+ 
 and pp_stmts (fmt : F.formatter) (stmts : stmt list) : unit =
   let rec pp fmt stmts =
     match stmts with
