@@ -265,6 +265,12 @@ and interp_stmt (env : env_t) (s : stmt) : unit =
   | Return (Some i) ->
     raise (Return_exn !(Idmap.find i env.vars))
   | Loc (s, _) -> interp_stmt env s
+  | Case(e,s) -> 
+    interp_exp e;
+    interp_stmt s
+  | Switch(e,Case cases) -> 
+    interp_exp env e;
+    List.iter interp_stmt env cases 
 
 let interp_prog (p : prog) : unit =
   let fun_env =

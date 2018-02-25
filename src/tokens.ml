@@ -98,6 +98,7 @@ type token =
   | Let
   | Function
   | Return
+  | Case (* Added in support of switch statements *)
   | Switch  (* Added in support of switch statements *)
 
 let show_token (t : token) : string =
@@ -130,6 +131,7 @@ let show_token (t : token) : string =
   | Let -> "let"
   | Function -> "function"
   | Return -> "return"
+  | Case -> "case" (* Added in support of switch statements *)
   | Switch -> "switch"(* Added in support of switch statements *)
 
 (* Pretty-print a token *)
@@ -152,7 +154,7 @@ let keywords : (string * token) list =
   List.map (fun t -> (show_token t, t))
     [Do; While; If; Then; Else; Array; Assign; True; Input; Output; False;
      Lparen; Rparen; Lcurly; Rcurly; Lbrac; Rbrac; Int; Bool; Colon; Let;
-     Return; Function; Comma; Switch]
+     Return; Function; Comma; Case; Switch]
 
 (* Map each keyword string to its corresponding token *)
 let keyword_map : token Strmap.t =

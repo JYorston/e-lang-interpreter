@@ -232,11 +232,11 @@ let rec pp_stmt (fmt : F.formatter) (stmt : stmt) : unit =
   | Loc (s, _) ->
     pp_stmt fmt s
   | Case (e,s) -> 
-    F.fprintf fmt "@[<2>switch@ %a@ { }]"
+    F.fprintf fmt "@[<2>case@ %a@ do@ %a@]"
     pp_exp e 
     pp_stmt s
   | Switch (e,cases) -> 
-   F.fprintf fmt "@[<2>switch@ %a@ { }]"
+   F.fprintf fmt "@[<2>switch@ %a@ {%a@}]"
     pp_exp e
     pp_stmt cases
  

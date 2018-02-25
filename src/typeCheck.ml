@@ -151,6 +151,7 @@ let rec type_exp (ln : int option) (env : env_t) (e : exp) : t * exp =
     else
       type_error ln "array dimension with non-integer type"
 
+
 (* Type check an identifier without array indices *)
 let type_simple_ident (ln : int option) (env : env_t) (i : id) : t * id =
   match type_exp ln env (Ident (i, [])) with
@@ -216,6 +217,13 @@ let rec type_stmt (ln : int option) (env :env_t) (return : t) (stmt : stmt)
     Stmts (List.map (type_stmt ln env return) s_list)
   | Loc (s, ln') ->
     type_stmt (Some ln') env return s
+    (* SWITCH CHANGED *)
+  | Case(stmt) -> 
+    type_stmt(stmt) env return stmt 
+  | Switch (e1,cases)
+    let (t1,e2) = type_exp ln env e2 in
+    let e3 = type_stmt ln env cases in 
+
 
 let source_typ_to_t (t : SourceAst.typ) : t =
   match t with
