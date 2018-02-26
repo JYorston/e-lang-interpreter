@@ -64,6 +64,9 @@ type token =
   | Let
   | Function
   | Return
+  | Switch 
+  | Case 
+
 
 type tok_loc = (token * int)
 

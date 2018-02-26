@@ -131,6 +131,7 @@ let rec add_arguments (params : (id * _) list) (args : val_t list) (env : env_t)
   | (_, _) ->
     raise TypeError
 
+
 (* Compute the value of an expression *)
 let rec interp_exp (env : env_t) (e : exp) : val_t =
   match e with
@@ -217,6 +218,29 @@ and interp_var_decs (env : env_t) (decs : var_dec list) : env_t =
     decs;
   env
 
+and interpret_cases (env:env_t) (expr:val_t) (cases:stmt list) :unit = 
+  
+  let interp_case (env:env_t) (expr:val_t) (case:stmt) : bool =
+  match case with 
+  | Case(expr,e,stmt) ->  let v = interp_exp env e in 
+                          let expr2 = interp_exp env expr in
+                          
+                          if expr2 == v then 
+                            let v = interp_stmt env stmt in
+                            true
+                          else 
+                            false
+                          in
+let rec interp_cases (env:env_t) (expr:val_t) (cases: stmt list)  : unit =
+    match cases with
+    | (case::[]) -> if interp_case env expr case then 
+                        ()
+    | (head::tail) -> if interp_case env expr head == false then
+                      interp_cases env expr tail in 
+                      interp_cases env expr cases
+
+
+
 (* Run a statement *)
 and interp_stmt (env : env_t) (s : stmt) : unit =
   match s with
@@ -265,12 +289,9 @@ and interp_stmt (env : env_t) (s : stmt) : unit =
   | Return (Some i) ->
     raise (Return_exn !(Idmap.find i env.vars))
   | Loc (s, _) -> interp_stmt env s
-  | Case(e,s) -> 
-    interp_exp e;
-    interp_stmt s
-  | Switch(e,Case cases) -> 
-    interp_exp env e;
-    List.iter interp_stmt env cases 
+  | Switch(e,cases) -> 
+  let expr = interp_exp env e in 
+    interpret_cases env expr cases
 
 let interp_prog (p : prog) : unit =
   let fun_env =

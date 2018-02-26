@@ -180,6 +180,10 @@ type stmt =
   | Out of id
   | Return of id option
   | Loc of stmt * int (* annotate a statement with it's source line number *)
+  (* THIS HAS BEEN ADDED FOR SWITCH*)
+  | Switch of exp * stmt list  
+  | Case of exp* exp * stmt  (* A case will have two expression because the first one is the expr of the switch *) 
+(* END *)
 
 (* Pretty-print a statement *)
 let rec pp_stmt (fmt : F.formatter) (stmt : stmt) : unit =
@@ -227,6 +231,15 @@ let rec pp_stmt (fmt : F.formatter) (stmt : stmt) : unit =
       pp_id i
   | Loc (s, _) ->
     pp_stmt fmt s
+  | Case (exp,e,s) -> 
+    F.fprintf fmt "@[<2>case@ %a@ do@ %a]"
+    pp_exp e
+    pp_stmt s
+  | Switch (e,cases) -> 
+     F.fprintf fmt "@[<2>switch@ %a@ %a]" 
+     pp_exp e 
+     pp_stmts cases
+
 
 and pp_stmts (fmt : F.formatter) (stmts : stmt list) : unit =
   let rec pp fmt stmts =
@@ -240,7 +253,6 @@ and pp_stmts (fmt : F.formatter) (stmts : stmt list) : unit =
   F.fprintf fmt "@[<v>%a@]"
     pp stmts
 
-(* AST of types *)
 type typ =
   | Int
   | Bool
@@ -437,8 +449,27 @@ let rec parse_stmt (toks : T.tok_loc list) : stmt * T.tok_loc list =
   | (T.Input, ln) :: (T.Ident x, _) :: toks -> (Loc (In (Source (x,None)), ln), toks)
   | (T.Output, ln) :: (T.Ident x, _) :: toks -> (Loc (Out (Source (x,None)), ln), toks)
   | (T.Return, ln) :: (T.Ident x, _) :: toks -> (Loc (Return (Some (Source (x,None))), ln), toks)
+  | (T.Switch, ln) :: toks -> let (e, toks) = parse_exp toks in
+                              let (s, toks) = parse_case_list e toks in
+                              (Loc(Switch(e,s),ln),toks)
   | (t, ln) :: _ ->
     parse_error ln ("bad statement, beginning with a " ^ T.show_token t)
+
+and parse_case_list (e:exp) (toks:T.tok_loc list) : stmt list * T.tok_loc list =
+  match toks with 
+  | ((T.Rcurly, _ ):: toks) -> ([],toks)
+  | _ -> 
+    let (s,toks) = parse_case e toks in 
+    let (s_list,toks) = parse_case_list e toks in
+      (s::s_list,toks)
+and parse_case (expr:exp) (toks:T.tok_loc list) : stmt * T.tok_loc list =
+  match toks with 
+  | ((T.Case, ln ):: toks) -> let (e, toks) = parse_exp toks in
+                              let(s,toks) = parse_stmt toks in 
+                              (Loc(Case(e,expr,s),ln),toks)
+  | (T.Lcurly, ln) :: toks -> let (e, toks) = parse_exp toks in
+                              let(s,toks) = parse_stmt toks in 
+                              (Loc(Case(e,expr,s),ln),toks)
 
 (* Convert all of the statement in toks into an AST, stopping on a }. Return
    them with the left over tokens, not including the } *)
