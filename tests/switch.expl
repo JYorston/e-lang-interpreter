@@ -10,10 +10,12 @@ function test(x : int) (y : int) (z : int) : int
   y := 10 / x
 
   switch y {
-  	case 10 do output y
-  	case 5 do { x := 8
-                output x
-              }
+  	case 10 do 
+	  output y
+  	case 5 do {
+	  x := 8
+          output x
+        }
   }
   
   output y

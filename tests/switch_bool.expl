@@ -1,0 +1,18 @@
+//test switch_bool
+
+
+let x : int = switch_test(10)
+
+function switch_test(y : int) : int
+{
+  let x : int = y
+
+  switch x > 5 {
+  	case false do output x
+  	case true do { x := 5001
+                output x
+              }
+  }
+  
+  return x
+}

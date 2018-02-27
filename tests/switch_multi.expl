@@ -1,0 +1,23 @@
+// test switch_multi
+// Should output 500010
+let x : int = switch_test(7)
+
+function switch_test(y : int) : int
+{
+  let x : int = y
+
+  switch x {
+    case 5 do 
+      output x
+    case 7 do { 
+      while(x < 10){ 
+        x := x + 1
+      }
+    }
+    case 10 do {
+      x := x + 500000
+      output x 
+    } 
+  }
+  return x
+}

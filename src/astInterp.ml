@@ -224,7 +224,7 @@ and interpret_cases (env:env_t) (expr:val_t) (cases:stmt list) :unit =
   match case with 
     | Case(expr,e,stmt) -> if Int64.to_int(val_t_to_int (interp_exp env e)) == Int64.to_int(val_t_to_int (interp_exp env expr)) then
                             interp_stmt env stmt
-    | _ -> Printf.printf "test"
+    | _ -> Printf.printf "error"
 
                           in
 let rec interp_cases (env:env_t) (expr:val_t) (cases: stmt list)  : unit =

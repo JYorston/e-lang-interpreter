@@ -1,120 +1,141 @@
 ### Starting build.
-# Target: compile.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:compile.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules compile.ml > compile.ml.depends # cached
-# Target: blockStructure.mli.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:mli, file:blockStructure.mli, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules blockStructure.mli > blockStructure.mli.depends # cached
-# Target: sourceAst.mli.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:mli, file:sourceAst.mli, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: compile.ml.depends, tags: { bin_annot, debug, extension:ml, file:compile.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules compile.ml > compile.ml.depends
+# Target: blockStructure.mli.depends, tags: { bin_annot, debug, extension:mli, file:blockStructure.mli, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules blockStructure.mli > blockStructure.mli.depends
+# Target: sourceAst.mli.depends, tags: { bin_annot, debug, extension:mli, file:sourceAst.mli, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamldep -package str -modules sourceAst.mli > sourceAst.mli.depends # cached
-# Target: tokens.mli.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:mli, file:tokens.mli, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: tokens.mli.depends, tags: { bin_annot, debug, extension:mli, file:tokens.mli, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamldep -package str -modules tokens.mli > tokens.mli.depends # cached
-# Target: tokens.cmi, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:mli, file:tokens.mli, interf, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: tokens.cmi, tags: { bin_annot, byte, compile, debug, extension:mli, file:tokens.mli, interf, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o tokens.cmi tokens.mli # cached
-# Target: sourceAst.cmi, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:mli, file:sourceAst.mli, interf, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: sourceAst.cmi, tags: { bin_annot, byte, compile, debug, extension:mli, file:sourceAst.mli, interf, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o sourceAst.cmi sourceAst.mli # cached
-# Target: blockStructure.cmi, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:mli, file:blockStructure.mli, interf, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o blockStructure.cmi blockStructure.mli # cached
-# Target: compileFunction.mli.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:mli, file:compileFunction.mli, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules compileFunction.mli > compileFunction.mli.depends # cached
-# Target: x86.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:x86.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules x86.ml > x86.ml.depends # cached
-# Target: util.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:util.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: compileFunction.mli.depends, tags: { bin_annot, debug, extension:mli, file:compileFunction.mli, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules compileFunction.mli > compileFunction.mli.depends
+# Target: blockStructure.cmi, tags: { bin_annot, byte, compile, debug, extension:mli, file:blockStructure.mli, interf, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o blockStructure.cmi blockStructure.mli
+# Target: x86.ml.depends, tags: { bin_annot, debug, extension:ml, file:x86.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules x86.ml > x86.ml.depends
+# Target: util.ml.depends, tags: { bin_annot, debug, extension:ml, file:util.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamldep -package str -modules util.ml > util.ml.depends # cached
-# Target: util.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:util.cmo, file:util.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: util.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:util.cmo, file:util.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o util.cmo util.ml # cached
-# Target: x86.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:x86.cmo, file:x86.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o x86.cmo x86.ml # cached
-# Target: compileFunction.cmi, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:mli, file:compileFunction.mli, interf, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o compileFunction.cmi compileFunction.mli # cached
-# Target: frontEnd.mli.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:mli, file:frontEnd.mli, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: x86.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:x86.cmo, file:x86.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o x86.cmo x86.ml
+# Target: frontEnd.mli.depends, tags: { bin_annot, debug, extension:mli, file:frontEnd.mli, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamldep -package str -modules frontEnd.mli > frontEnd.mli.depends # cached
-# Target: frontEnd.cmi, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:mli, file:frontEnd.mli, interf, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: frontEnd.cmi, tags: { bin_annot, byte, compile, debug, extension:mli, file:frontEnd.mli, interf, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o frontEnd.cmi frontEnd.mli # cached
-# Target: instrSelX86.mli.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:mli, file:instrSelX86.mli, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules instrSelX86.mli > instrSelX86.mli.depends # cached
-# Target: lineariseCfg.mli.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:mli, file:lineariseCfg.mli, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules lineariseCfg.mli > lineariseCfg.mli.depends # cached
-# Target: lineariseCfg.cmi, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:mli, file:lineariseCfg.mli, interf, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o lineariseCfg.cmi lineariseCfg.mli # cached
-# Target: instrSelX86.cmi, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:mli, file:instrSelX86.mli, interf, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o instrSelX86.cmi instrSelX86.mli # cached
-# Target: compile.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:compile.cmo, file:compile.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o compile.cmo compile.ml # cached
-# Target: blockStructure.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:blockStructure.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules blockStructure.ml > blockStructure.ml.depends # cached
-# Target: blockStructure.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:blockStructure.cmo, file:blockStructure.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o blockStructure.cmo blockStructure.ml # cached
-# Target: compileFunction.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:compileFunction.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules compileFunction.ml > compileFunction.ml.depends # cached
-# Target: constProp.mli.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:mli, file:constProp.mli, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules constProp.mli > constProp.mli.depends # cached
-# Target: constProp.cmi, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:mli, file:constProp.mli, interf, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o constProp.cmi constProp.mli # cached
-# Target: liveVarAnalysis.mli.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:mli, file:liveVarAnalysis.mli, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules liveVarAnalysis.mli > liveVarAnalysis.mli.depends # cached
-# Target: liveVarAnalysis.cmi, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:mli, file:liveVarAnalysis.mli, interf, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o liveVarAnalysis.cmi liveVarAnalysis.mli # cached
-# Target: regAlloc.mli.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:mli, file:regAlloc.mli, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules regAlloc.mli > regAlloc.mli.depends # cached
-# Target: regAlloc.cmi, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:mli, file:regAlloc.mli, interf, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o regAlloc.cmi regAlloc.mli # cached
-# Target: shrinkImmediates.mli.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:mli, file:shrinkImmediates.mli, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules shrinkImmediates.mli > shrinkImmediates.mli.depends # cached
-# Target: shrinkImmediates.cmi, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:mli, file:shrinkImmediates.mli, interf, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o shrinkImmediates.cmi shrinkImmediates.mli # cached
-# Target: unnestExp.mli.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:mli, file:unnestExp.mli, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules unnestExp.mli > unnestExp.mli.depends # cached
-# Target: unnestExp.cmi, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:mli, file:unnestExp.mli, interf, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o unnestExp.cmi unnestExp.mli # cached
-# Target: compileFunction.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:compileFunction.cmo, file:compileFunction.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o compileFunction.cmo compileFunction.ml # cached
-# Target: frontEnd.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:frontEnd.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: instrSelX86.mli.depends, tags: { bin_annot, debug, extension:mli, file:instrSelX86.mli, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules instrSelX86.mli > instrSelX86.mli.depends
+# Target: lineariseCfg.mli.depends, tags: { bin_annot, debug, extension:mli, file:lineariseCfg.mli, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules lineariseCfg.mli > lineariseCfg.mli.depends
+# Target: lineariseCfg.cmi, tags: { bin_annot, byte, compile, debug, extension:mli, file:lineariseCfg.mli, interf, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o lineariseCfg.cmi lineariseCfg.mli
+# Target: compileFunction.cmi, tags: { bin_annot, byte, compile, debug, extension:mli, file:compileFunction.mli, interf, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o compileFunction.cmi compileFunction.mli
+# Target: instrSelX86.cmi, tags: { bin_annot, byte, compile, debug, extension:mli, file:instrSelX86.mli, interf, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o instrSelX86.cmi instrSelX86.mli
+# Target: compile.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:compile.cmo, file:compile.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o compile.cmo compile.ml
+# Target: blockStructure.ml.depends, tags: { bin_annot, debug, extension:ml, file:blockStructure.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules blockStructure.ml > blockStructure.ml.depends
+# Target: compileFunction.ml.depends, tags: { bin_annot, debug, extension:ml, file:compileFunction.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules compileFunction.ml > compileFunction.ml.depends
+# Target: constProp.mli.depends, tags: { bin_annot, debug, extension:mli, file:constProp.mli, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules constProp.mli > constProp.mli.depends
+# Target: liveVarAnalysis.mli.depends, tags: { bin_annot, debug, extension:mli, file:liveVarAnalysis.mli, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules liveVarAnalysis.mli > liveVarAnalysis.mli.depends
+# Target: regAlloc.mli.depends, tags: { bin_annot, debug, extension:mli, file:regAlloc.mli, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules regAlloc.mli > regAlloc.mli.depends
+# Target: shrinkImmediates.mli.depends, tags: { bin_annot, debug, extension:mli, file:shrinkImmediates.mli, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules shrinkImmediates.mli > shrinkImmediates.mli.depends
+# Target: unnestExp.mli.depends, tags: { bin_annot, debug, extension:mli, file:unnestExp.mli, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules unnestExp.mli > unnestExp.mli.depends
+# Target: constProp.cmi, tags: { bin_annot, byte, compile, debug, extension:mli, file:constProp.mli, interf, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o constProp.cmi constProp.mli
+# Target: liveVarAnalysis.cmi, tags: { bin_annot, byte, compile, debug, extension:mli, file:liveVarAnalysis.mli, interf, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o liveVarAnalysis.cmi liveVarAnalysis.mli
+# Target: regAlloc.cmi, tags: { bin_annot, byte, compile, debug, extension:mli, file:regAlloc.mli, interf, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o regAlloc.cmi regAlloc.mli
+# Target: shrinkImmediates.cmi, tags: { bin_annot, byte, compile, debug, extension:mli, file:shrinkImmediates.mli, interf, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o shrinkImmediates.cmi shrinkImmediates.mli
+# Target: unnestExp.cmi, tags: { bin_annot, byte, compile, debug, extension:mli, file:unnestExp.mli, interf, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o unnestExp.cmi unnestExp.mli
+# Target: frontEnd.ml.depends, tags: { bin_annot, debug, extension:ml, file:frontEnd.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamldep -package str -modules frontEnd.ml > frontEnd.ml.depends # cached
-# Target: typeCheck.mli.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:mli, file:typeCheck.mli, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: typeCheck.mli.depends, tags: { bin_annot, debug, extension:mli, file:typeCheck.mli, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamldep -package str -modules typeCheck.mli > typeCheck.mli.depends # cached
-# Target: typeCheck.cmi, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:mli, file:typeCheck.mli, interf, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: typeCheck.cmi, tags: { bin_annot, byte, compile, debug, extension:mli, file:typeCheck.mli, interf, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o typeCheck.cmi typeCheck.mli # cached
-# Target: frontEnd.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:frontEnd.cmo, file:frontEnd.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: frontEnd.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:frontEnd.cmo, file:frontEnd.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o frontEnd.cmo frontEnd.ml # cached
-# Target: instrSelX86.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:instrSelX86.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules instrSelX86.ml > instrSelX86.ml.depends # cached
-# Target: instrSelX86.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:instrSelX86.cmo, file:instrSelX86.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o instrSelX86.cmo instrSelX86.ml # cached
-# Target: sourceAst.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:sourceAst.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: instrSelX86.ml.depends, tags: { bin_annot, debug, extension:ml, file:instrSelX86.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules instrSelX86.ml > instrSelX86.ml.depends
+# Target: sourceAst.ml.depends, tags: { bin_annot, debug, extension:ml, file:sourceAst.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamldep -package str -modules sourceAst.ml > sourceAst.ml.depends # cached
-# Target: sourceAst.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:sourceAst.cmo, file:sourceAst.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: sourceAst.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:sourceAst.cmo, file:sourceAst.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o sourceAst.cmo sourceAst.ml # cached
-# Target: tokens.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:tokens.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: blockStructure.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:blockStructure.cmo, file:blockStructure.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o blockStructure.cmo blockStructure.ml
++ ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o blockStructure.cmo blockStructure.ml
+File "blockStructure.ml", line 365, characters 4-3379:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+(Switch (_, _)|Case (_, _, _))::_
+# Target: compileFunction.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:compileFunction.cmo, file:compileFunction.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o compileFunction.cmo compileFunction.ml
++ ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o compileFunction.cmo compileFunction.ml
+File "compileFunction.ml", line 34, characters 21-29:
+Warning 27: unused variable filename.
+# Target: instrSelX86.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:instrSelX86.cmo, file:instrSelX86.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o instrSelX86.cmo instrSelX86.ml
+# Target: tokens.ml.depends, tags: { bin_annot, debug, extension:ml, file:tokens.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamldep -package str -modules tokens.ml > tokens.ml.depends # cached
-# Target: tokens.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:tokens.cmo, file:tokens.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: tokens.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:tokens.cmo, file:tokens.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o tokens.cmo tokens.ml # cached
-# Target: constProp.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:constProp.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules constProp.ml > constProp.ml.depends # cached
-# Target: constProp.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:constProp.cmo, file:constProp.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o constProp.cmo constProp.ml # cached
-# Target: lineariseCfg.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:lineariseCfg.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules lineariseCfg.ml > lineariseCfg.ml.depends # cached
-# Target: lineariseCfg.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:lineariseCfg.cmo, file:lineariseCfg.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o lineariseCfg.cmo lineariseCfg.ml # cached
-# Target: liveVarAnalysis.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:liveVarAnalysis.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules liveVarAnalysis.ml > liveVarAnalysis.ml.depends # cached
-# Target: liveVarAnalysis.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:liveVarAnalysis.cmo, file:liveVarAnalysis.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o liveVarAnalysis.cmo liveVarAnalysis.ml # cached
-# Target: regAlloc.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:regAlloc.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules regAlloc.ml > regAlloc.ml.depends # cached
-# Target: regAlloc.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:regAlloc.cmo, file:regAlloc.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o regAlloc.cmo regAlloc.ml # cached
-# Target: shrinkImmediates.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:shrinkImmediates.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules shrinkImmediates.ml > shrinkImmediates.ml.depends # cached
-# Target: shrinkImmediates.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:shrinkImmediates.cmo, file:shrinkImmediates.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o shrinkImmediates.cmo shrinkImmediates.ml # cached
-# Target: unnestExp.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:unnestExp.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamldep -package str -modules unnestExp.ml > unnestExp.ml.depends # cached
-# Target: unnestExp.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:unnestExp.cmo, file:unnestExp.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o unnestExp.cmo unnestExp.ml # cached
-# Target: typeCheck.ml.depends, tags: { package(str), warn(A-42-4), bin_annot, debug, extension:ml, file:typeCheck.ml, ocaml, ocamldep, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: constProp.ml.depends, tags: { bin_annot, debug, extension:ml, file:constProp.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules constProp.ml > constProp.ml.depends
+# Target: lineariseCfg.ml.depends, tags: { bin_annot, debug, extension:ml, file:lineariseCfg.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules lineariseCfg.ml > lineariseCfg.ml.depends
+# Target: liveVarAnalysis.ml.depends, tags: { bin_annot, debug, extension:ml, file:liveVarAnalysis.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules liveVarAnalysis.ml > liveVarAnalysis.ml.depends
+# Target: regAlloc.ml.depends, tags: { bin_annot, debug, extension:ml, file:regAlloc.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules regAlloc.ml > regAlloc.ml.depends
+# Target: shrinkImmediates.ml.depends, tags: { bin_annot, debug, extension:ml, file:shrinkImmediates.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules shrinkImmediates.ml > shrinkImmediates.ml.depends
+# Target: unnestExp.ml.depends, tags: { bin_annot, debug, extension:ml, file:unnestExp.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamldep -package str -modules unnestExp.ml > unnestExp.ml.depends
+# Target: constProp.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:constProp.cmo, file:constProp.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o constProp.cmo constProp.ml
++ ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o constProp.cmo constProp.ml
+File "constProp.ml", line 213, characters 2-2763:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+(Switch (_, _)|Case (_, _, _))::_
+# Target: lineariseCfg.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:lineariseCfg.cmo, file:lineariseCfg.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o lineariseCfg.cmo lineariseCfg.ml
+# Target: liveVarAnalysis.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:liveVarAnalysis.cmo, file:liveVarAnalysis.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o liveVarAnalysis.cmo liveVarAnalysis.ml
+# Target: regAlloc.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:regAlloc.cmo, file:regAlloc.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o regAlloc.cmo regAlloc.ml
++ ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o regAlloc.cmo regAlloc.ml
+File "regAlloc.ml", line 153, characters 56-64:
+Warning 27: unused variable num_regs.
+# Target: shrinkImmediates.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:shrinkImmediates.cmo, file:shrinkImmediates.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o shrinkImmediates.cmo shrinkImmediates.ml
+# Target: unnestExp.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:unnestExp.cmo, file:unnestExp.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o unnestExp.cmo unnestExp.ml
++ ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o unnestExp.cmo unnestExp.ml
+File "unnestExp.ml", line 159, characters 4-1110:
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a value that is not matched:
+(Switch (_, _)|Case (_, _, _))
+# Target: typeCheck.ml.depends, tags: { bin_annot, debug, extension:ml, file:typeCheck.ml, ocaml, ocamldep, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamldep -package str -modules typeCheck.ml > typeCheck.ml.depends # cached
-# Target: typeCheck.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:typeCheck.cmo, file:typeCheck.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
+# Target: typeCheck.cmo, tags: { bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:typeCheck.cmo, file:typeCheck.ml, implem, ocaml, package(str), principal, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
 ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o typeCheck.cmo typeCheck.ml # cached
-# Target: compile.byte, tags: { package(str), warn(A-42-4), bin_annot, byte, debug, dont_link_with, extension:byte, file:compile.byte, link, ocaml, principal, program, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -linkpkg -g -package str util.cmo tokens.cmo sourceAst.cmo blockStructure.cmo constProp.cmo lineariseCfg.cmo x86.cmo instrSelX86.cmo liveVarAnalysis.cmo regAlloc.cmo shrinkImmediates.cmo unnestExp.cmo compileFunction.cmo typeCheck.cmo frontEnd.cmo compile.cmo -o compile.byte # cached
+# Target: compile.byte, tags: { bin_annot, byte, debug, dont_link_with, extension:byte, file:compile.byte, link, ocaml, package(str), principal, program, quiet, safe_string, strict_formats, strict_sequence, traverse, warn(A-42-4) }
+ocamlfind ocamlc -linkpkg -g -package str util.cmo tokens.cmo sourceAst.cmo blockStructure.cmo constProp.cmo lineariseCfg.cmo x86.cmo instrSelX86.cmo liveVarAnalysis.cmo regAlloc.cmo shrinkImmediates.cmo unnestExp.cmo compileFunction.cmo typeCheck.cmo frontEnd.cmo compile.cmo -o compile.byte
 # Compilation successful.

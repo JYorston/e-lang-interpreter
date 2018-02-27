@@ -221,13 +221,11 @@ let rec type_stmt (ln : int option) (env :env_t) (return : t) (stmt : stmt)
   | Case(expr,e,stmt) -> 
     let (t1,e1) = type_exp ln env e in
     let (t2,expr) = type_exp ln env expr in
-
     if t1 != t2 then 
-      type_error ln "types in switch cases does not match"
+      type_error ln "case type does not match switch type"
     else 
-    let barbar = type_stmt ln env return stmt in
-    Case(expr,e1,barbar)
-
+      let valid = type_stmt ln env return stmt in
+      Case(expr,e1,valid)
   | Switch (e,cases) -> 
     let (t1,e2) = type_exp ln env e in
     Switch(e2,List.map (type_stmt ln env return) cases) 
