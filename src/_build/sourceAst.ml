@@ -449,9 +449,13 @@ let rec parse_stmt (toks : T.tok_loc list) : stmt * T.tok_loc list =
   | (T.Input, ln) :: (T.Ident x, _) :: toks -> (Loc (In (Source (x,None)), ln), toks)
   | (T.Output, ln) :: (T.Ident x, _) :: toks -> (Loc (Out (Source (x,None)), ln), toks)
   | (T.Return, ln) :: (T.Ident x, _) :: toks -> (Loc (Return (Some (Source (x,None))), ln), toks)
-  | (T.Switch, ln) :: toks -> let (e, toks) = parse_exp toks in
-                              let (s, toks) = parse_case_list e toks in
-                              (Loc(Switch(e,s),ln),toks)
+  | (T.Switch, ln) :: toks -> (match parse_exp toks with
+                               | (_, []) -> eof_error "a switch statement"
+                               | (e, (T.Lcurly,_) :: toks)->
+                                let (stmts,toks) = parse_case_list e toks in
+                                (Loc(Switch(e,stmts),ln),toks)
+                               | (_, (t, ln) :: _) ->
+                                 parse_error_expect ln t T.Lcurly "a switch statement")
   | (t, ln) :: _ ->
     parse_error ln ("bad statement, beginning with a " ^ T.show_token t)
 
@@ -459,18 +463,17 @@ and parse_case_list (e:exp) (toks:T.tok_loc list) : stmt list * T.tok_loc list =
   match toks with 
   | ((T.Rcurly, _ ):: toks) -> ([],toks)
   | _ -> 
-    let (s,toks) = parse_case e toks in 
-    let (s_list,toks) = parse_case_list e toks in
-      (s::s_list,toks)
+        let (s,toks) = parse_case e toks in 
+        let (s_list,toks) = parse_case_list e toks in
+          (s::s_list,toks)
 and parse_case (expr:exp) (toks:T.tok_loc list) : stmt * T.tok_loc list =
   match toks with 
-  | ((T.Case, ln ):: toks) -> let (e, toks) = parse_exp toks in
-                              let(s,toks) = parse_stmt toks in 
-                              (Loc(Case(e,expr,s),ln),toks)
-  | (T.Lcurly, ln) :: toks -> let (e, toks) = parse_exp toks in
-                              let(s,toks) = parse_stmt toks in 
-                              (Loc(Case(e,expr,s),ln),toks)
-
+  | ((T.Case,ln):: toks) -> (match parse_exp toks with 
+                                | (e,(T.Do,_)::toks) -> 
+                                    let(s,toks) = parse_stmt toks in 
+                                    (Loc(Case(e,expr,s),ln),toks)
+                                | (_,(t,ln) :: _) -> parse_error_expect ln t T.Do "a case statement")
+  | ((e,ln) :: _) -> parse_error_expect ln e T.Case "a case statement"
 (* Convert all of the statement in toks into an AST, stopping on a }. Return
    them with the left over tokens, not including the } *)
 and parse_stmt_list (toks : T.tok_loc list) : stmt list * T.tok_loc list =

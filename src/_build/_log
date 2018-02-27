@@ -116,5 +116,5 @@ ocamlfind ocamldep -package str -modules typeCheck.ml > typeCheck.ml.depends # c
 # Target: typeCheck.cmo, tags: { package(str), warn(A-42-4), bin_annot, byte, compile, debug, extension:cmo, extension:ml, file:typeCheck.cmo, file:typeCheck.ml, implem, ocaml, principal, quiet, safe_string, strict_formats, strict_sequence, traverse }
 ocamlfind ocamlc -c -g -bin-annot -safe-string -principal -strict-formats -strict-sequence -w A-42-4 -package str -o typeCheck.cmo typeCheck.ml # cached
 # Target: compile.byte, tags: { package(str), warn(A-42-4), bin_annot, byte, debug, dont_link_with, extension:byte, file:compile.byte, link, ocaml, principal, program, quiet, safe_string, strict_formats, strict_sequence, traverse }
-ocamlfind ocamlc -linkpkg -g -package str util.cmo tokens.cmo sourceAst.cmo blockStructure.cmo constProp.cmo lineariseCfg.cmo x86.cmo instrSelX86.cmo liveVarAnalysis.cmo regAlloc.cmo shrinkImmediates.cmo unnestExp.cmo compileFunction.cmo typeCheck.cmo frontEnd.cmo compile.cmo -o compile.byte
+ocamlfind ocamlc -linkpkg -g -package str util.cmo tokens.cmo sourceAst.cmo blockStructure.cmo constProp.cmo lineariseCfg.cmo x86.cmo instrSelX86.cmo liveVarAnalysis.cmo regAlloc.cmo shrinkImmediates.cmo unnestExp.cmo compileFunction.cmo typeCheck.cmo frontEnd.cmo compile.cmo -o compile.byte # cached
 # Compilation successful.

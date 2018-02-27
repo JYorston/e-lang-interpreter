@@ -220,22 +220,17 @@ and interp_var_decs (env : env_t) (decs : var_dec list) : env_t =
 
 and interpret_cases (env:env_t) (expr:val_t) (cases:stmt list) :unit = 
   
-  let interp_case (env:env_t) (expr:val_t) (case:stmt) : bool =
+  let interp_case (env:env_t) (expr:val_t) (case:stmt) : unit =
   match case with 
-  | Case(expr,e,stmt) ->  let v = interp_exp env e in 
-                          let expr2 = interp_exp env expr in
-                          
-                          if expr2 == v then 
-                            let v = interp_stmt env stmt in
-                            true
-                          else 
-                            false
+    | Case(expr,e,stmt) -> if Int64.to_int(val_t_to_int (interp_exp env e)) == Int64.to_int(val_t_to_int (interp_exp env expr)) then
+                            interp_stmt env stmt
+    | _ -> Printf.printf "test"
+
                           in
 let rec interp_cases (env:env_t) (expr:val_t) (cases: stmt list)  : unit =
     match cases with
-    | (case::[]) -> if interp_case env expr case then 
-                        ()
-    | (head::tail) -> if interp_case env expr head == false then
+    | (case::[]) -> interp_case env expr case
+    | (head::tail) -> let v = interp_case env expr head in
                       interp_cases env expr tail in 
                       interp_cases env expr cases
 
@@ -290,8 +285,8 @@ and interp_stmt (env : env_t) (s : stmt) : unit =
     raise (Return_exn !(Idmap.find i env.vars))
   | Loc (s, _) -> interp_stmt env s
   | Switch(e,cases) -> 
-  let expr = interp_exp env e in 
-    interpret_cases env expr cases
+    let expr = interp_exp env e in 
+      interpret_cases env expr cases
 
 let interp_prog (p : prog) : unit =
   let fun_env =
